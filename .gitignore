@@ -1,0 +1,5 @@
+node_modules/
+# Build output: attach release/*.zip to a GitHub Release; don't commit it.
+.pack/
+package/
+release/

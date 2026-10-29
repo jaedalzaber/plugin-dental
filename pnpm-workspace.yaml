@@ -1,0 +1,3 @@
+# Settings for pnpm in this standalone plugin project (no workspace packages of its own).
+allowBuilds:
+  esbuild: true

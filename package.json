@@ -1,0 +1,29 @@
+{
+  "name": "@appointit/plugin-vertical-dental",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Dental clinic plugin for AppointIt (package plugin, slug \"dental\").",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --project unit",
+    "test:int": "vitest run --project integration",
+    "pack": "tsx ../booking-and-cms/packages/plugin-sdk/src/pack/cli.ts .",
+    "release": "node scripts/release.mjs"
+  },
+  "dependencies": {
+    "@appointit/plugin-sdk": "link:../booking-and-cms/packages/plugin-sdk",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@appointit/i18n": "link:../booking-and-cms/packages/i18n",
+    "@appointit/ui": "link:../booking-and-cms/packages/ui",
+    "@tanstack/react-query": "link:../booking-and-cms/apps/web/node_modules/@tanstack/react-query",
+    "@types/node": "24.19.2",
+    "@types/react": "link:../booking-and-cms/packages/ui/node_modules/@types/react",
+    "react": "link:../booking-and-cms/packages/ui/node_modules/react",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}
