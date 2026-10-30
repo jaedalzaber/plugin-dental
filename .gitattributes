@@ -1,0 +1,2 @@
+# The built plugin is stored byte for byte: SIGNATURE.json holds the sha256 of every file.
+package/** -text

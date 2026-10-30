@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "keyId": "",
+  "files": {
+    "CHANGELOG.md": "705c9d2d45ae6183ab34e7a645fb3207ec87177e5113dc9a4ab48f7a6740fba9",
+    "README.md": "2cce59b5127c514512d4bc7b3f41a6d5f10df0a86ad96f74757e230dcd82868a",
+    "dist/admin.css": "e8a9fe985c684bbfd7d82075f4f4bf3c84160ff5976cda842b05118786709af6",
+    "dist/admin.js": "435791cfd97b398b106c499fa7c6cd8dff2906b7e533e60ed3fa708d7a366d04",
+    "dist/server.cjs": "b40da10defa5ec066c8b18f1991a6ed1f17783961dc9d25f6267c599ee899900",
+    "i18n/en.json": "c17285c90a2170c712826fa9423fc7ebe939c1675a8afeb28b7115d653510685",
+    "icon.svg": "043ce4fa5f41b95962d67f7d379e53460263902db7fbf9854d5121ccd11dccf9",
+    "migrations/0001_dental.sql": "100381e0f927734c1156242036f53eb970504dd110f05aa7379bda07a5b26859",
+    "plugin.json": "768fd554629ebee02b24a201747f56b6793264ed51358dbd1ddfe1a9d0ca1e66"
+  },
+  "signature": ""
+}

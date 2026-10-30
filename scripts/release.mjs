@@ -1,5 +1,6 @@
-// Builds a release: the packed plugin in package/ and release/dental-<version>.zip, then prints the zip's sha256
-// for the Browse list (index.json). Signing: RELEASE_KEY=<private key PEM file> RELEASE_KEY_ID=<key id> pnpm release
+// Builds a release: the packed plugin in package/ (committed: a Git install of the release tag uses it) and
+// release/dental-<version>.zip with its sha256 (for a zip upload). See README.md, Releasing.
+// Signing: RELEASE_KEY=<private key PEM file> RELEASE_KEY_ID=<key id> pnpm release
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync } from "node:fs";
@@ -17,3 +18,4 @@ execFileSync(process.execPath, args, { cwd: root, stdio: "inherit" });
 
 const sha256 = createHash("sha256").update(readFileSync(zip)).digest("hex");
 console.log(`\n${id} ${version}\n  zip:    ${zip}\n  sha256: ${sha256}`);
+console.log(`\nNext: commit (package/ included), then git tag v${version} && git push origin main v${version},\nthen set version and download.ref ("v${version}") in the plugin list's index.json.`);

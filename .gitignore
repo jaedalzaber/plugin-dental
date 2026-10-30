@@ -1,5 +1,4 @@
 node_modules/
-# Build output: attach release/*.zip to a GitHub Release; don't commit it.
+# Build output. package/ is committed (a Git install of a release tag uses it); the zip is not.
 .pack/
-package/
 release/

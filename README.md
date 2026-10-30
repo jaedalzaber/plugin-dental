@@ -1,6 +1,6 @@
 # Dental clinic
 
-Everything a dental clinic needs on top of the booking platform. It is a bundled package plugin: it ships with AppointIt, stays off until a business switches it on, and keeps its data in its own tables.
+Everything a dental clinic needs on top of the booking platform. It is a package plugin for AppointIt: install it from **Settings › Plugins**. It stays off until a business switches it on, and keeps its data in its own tables.
 
 ## What it adds
 
@@ -15,7 +15,7 @@ Everything a dental clinic needs on top of the booking platform. It is a bundled
 
 ## Switching it on
 
-Pick **Dental clinic** as the business type in the setup wizard, or choose it later from the plugin's page. That switches the plugin on for the business and adds the starter pack. Adding it again is safe: what already exists is never changed.
+Install the plugin first (**Settings › Plugins**, then **Browse** or **From Git**). Then pick **Dental clinic** as the business type in the setup wizard, or choose **Use this business type** on the plugin's page. That switches the plugin on for the business and adds the starter pack. Adding it again is safe: what already exists is never changed.
 
 ## Settings
 
@@ -51,10 +51,20 @@ This project builds against the AppointIt checkout next to it: `D:\booking-and-c
 
 ## Releasing
 
-1. Raise `version` in `plugin.json` and in `src/index.ts` (they must match) and add a line to `CHANGELOG.md`.
-2. `pnpm release` builds `package/` and `release/dental-<version>.zip` and prints the zip's sha256.
-   To sign it: `RELEASE_KEY=<private key PEM> RELEASE_KEY_ID=<key id> pnpm release`.
-3. Commit, tag `v<version>`, push, and create a GitHub Release with the zip attached.
-4. In the plugin list repo (`index.json`), set this plugin's `version`, `download.zip` (the release asset URL) and `download.sha256`.
+The plugin list ([jaedalzaber/booking-plugins](https://github.com/jaedalzaber/booking-plugins)) installs this plugin from Git, at the tag of a version. A Git install uses this repository's `package/` folder, so the built plugin is committed there.
 
-Install it from the zip (or the Browse list), not by pointing a Git install at this repository: its root holds the source, not the built package.
+1. Raise `version` in `plugin.json` and in `src/index.ts` (they must match) and add a line to `CHANGELOG.md`.
+2. `pnpm release` builds `package/`. It also writes `release/dental-<version>.zip` and prints its sha256, for a zip upload.
+   To sign it: `RELEASE_KEY=<private key PEM> RELEASE_KEY_ID=<key id> pnpm release`.
+3. Commit everything, `package/` included. Then tag and push:
+   ```
+   git tag v<version>
+   git push origin main v<version>
+   ```
+4. In the plugin list's `index.json`, set this plugin's `version` and `download.ref` (`v<version>`). Commit and push it.
+
+Never move a tag that is already pushed. Release a new version instead.
+
+The `v0.2.0` tag is older: it holds only the built files, at its top level. A Git install handles both.
+
+You can also install by hand: **From Git** with this repository's URL and a tag, or **Upload zip** with the zip from step 2.

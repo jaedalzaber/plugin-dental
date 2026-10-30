@@ -1,0 +1,118 @@
+{
+  "id": "appointit.vertical-dental",
+  "slug": "dental",
+  "name": "Dental clinic",
+  "version": "0.2.0",
+  "publisher": "AppointIt",
+  "description": "Everything a dental clinic needs on top of the booking platform: medical history with alerts, insurance, consent forms, the dental chart, procedures, treatment plans, recall, and a starter pack.",
+  "engines": {
+    "appointit": "^0.2.0"
+  },
+  "access": [
+    "customer-data",
+    "health-data",
+    "messages",
+    "files",
+    "settings"
+  ],
+  "migrations": "migrations",
+  "i18n": {
+    "en": "i18n/en.json"
+  },
+  "contributes": {
+    "menus": [
+      {
+        "key": "recall",
+        "label": "dental.navRecall",
+        "page": "recall",
+        "icon": "Bell",
+        "permission": "bookings.read",
+        "group": "main"
+      },
+      {
+        "key": "procedures",
+        "label": "dental.navProcedures",
+        "page": "procedures",
+        "icon": "Layers",
+        "permission": "services.manage",
+        "group": "catalog"
+      }
+    ],
+    "pages": [
+      {
+        "path": "recall",
+        "title": "dental.recallTitle",
+        "permission": "bookings.read"
+      },
+      {
+        "path": "procedures",
+        "title": "dental.procTitle",
+        "permission": "services.manage"
+      }
+    ],
+    "slots": {
+      "customer.detail": {
+        "permission": "health.read"
+      },
+      "booking.panel": {},
+      "calendar.booking.badge": {},
+      "settings.business": {
+        "permission": "settings.manage"
+      },
+      "reports.tiles": {
+        "permission": "reports.read"
+      },
+      "plugin.settings": {
+        "permission": "plugins.manage"
+      }
+    },
+    "businessTypes": [
+      {
+        "key": "dental",
+        "label": "dental.businessTypeLabel",
+        "help": "dental.businessTypeHelp"
+      }
+    ],
+    "formBlocks": [
+      {
+        "key": "reason",
+        "type": "select",
+        "group": "questions",
+        "label": "Reason for visit",
+        "help": "Check-up, pain, filling, whitening or other.",
+        "role": "issue",
+        "opts": [
+          "Check-up and cleaning",
+          "Toothache or pain",
+          "Filling or repair",
+          "Whitening or cosmetic",
+          "Other"
+        ]
+      },
+      {
+        "key": "insurer",
+        "type": "short",
+        "group": "contact",
+        "label": "Insurance details",
+        "help": "Insurance provider and member ID.",
+        "ph": "Leave empty if you are paying yourself"
+      },
+      {
+        "key": "dentist",
+        "type": "short",
+        "group": "contact",
+        "label": "Preferred dentist",
+        "help": "Who the patient would like to see, or no preference.",
+        "ph": "Leave empty for no preference"
+      }
+    ]
+  },
+  "entries": {
+    "server": "dist/server.cjs",
+    "admin": "dist/admin.js",
+    "styles": "dist/admin.css"
+  },
+  "icon": "icon.svg",
+  "readme": "README.md",
+  "changelog": "CHANGELOG.md"
+}
